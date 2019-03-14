@@ -20,23 +20,7 @@ const MenuBar = (props) => {
     // debugger
     props.clickHandler(e.target.id)
     inactiveItem = 'item'
-    e.target.parentElement.innerHTML = `
-    <a className={inactiveItem} id="profile" onClick={barClickHandler}>
-      <i className="user large icon" id="profile"/>
-    </a>
-
-    <a className={inactiveItem} id="photo" onClick={barClickHandler}>
-      <i className="photo large icon" id="photo"/>
-    </a>
-
-    <a className={inactiveItem} id="cocktail" onClick={barClickHandler}>
-      <i className="cocktail large icon" id="cocktail"/>
-    </a>
-
-    <a className={inactiveItem} id="pokemon" onClick={barClickHandler}>
-      <i className=" themeisle large icon" id="pokemon"/>
-    </a>
-    `
+    //
     e.target.className = 'item active'
   }
 

@@ -8,12 +8,18 @@ class MainBox extends React.Component {
     active: 'profile'
   }
 
-  activeObj = {
-    profile: Profile,
-    photo: Photos,
-    cocktail: Cocktails,
-    pokemon: Pokemon
+  returnPage = (activeState) => {
+    if(activeState === 'profile'){
+      return Profile()
+    } else if (activeState === 'photo') {
+      return Photos()
+    } else if (activeState === 'cocktail') {
+      return Cocktails()
+    } else if (activeState === 'pokemon') {
+      return <Pokemon />
+    }
   }
+
 
   clickHandler = (id) => {
     console.log('something')
@@ -37,7 +43,7 @@ class MainBox extends React.Component {
     return (
       <div>
         <MenuBar clickHandler={this.clickHandler}/>
-        {this.state.active === 'pokemon' ? <Pokemon /> : this.activeObj[this.state.active]()}
+        {this.returnPage(this.state.active)}
       </div>
     )
   }
