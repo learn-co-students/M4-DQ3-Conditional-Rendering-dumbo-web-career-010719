@@ -4,6 +4,25 @@ import { Profile, Photos, Cocktails, Pokemon} from '../components/Pages.js'
 
 class MainBox extends React.Component {
 
+  state = {
+    active: 'profile'
+  }
+
+  activeObj = {
+    profile: Profile,
+    photo: Photos,
+    cocktail: Cocktails,
+    pokemon: Pokemon
+  }
+
+  clickHandler = (id) => {
+    console.log('something')
+    this.setState({
+      active: id
+    })
+
+  }
+
 
   render() {
 
@@ -13,12 +32,12 @@ class MainBox extends React.Component {
 
     */
 
-    const detailsToDisplay = <div>Hi, I'm a div!</div>
-
+    // const detailsToDisplay = <div>{Profile()}</div>
+    // console.log(Profile())
     return (
       <div>
-        <MenuBar />
-        {detailsToDisplay}
+        <MenuBar clickHandler={this.clickHandler}/>
+        {this.state.active === 'pokemon' ? <Pokemon /> : this.activeObj[this.state.active]()}
       </div>
     )
   }
